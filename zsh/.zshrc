@@ -8,6 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_RUNTIME_DIR="/tmp/${USER}-runtime-dir"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 CASE_SENSITIVE="true"
@@ -21,7 +22,7 @@ else
   export EDITOR='nvim'
 fi
 
-plugins=(git)
+plugins=(git nvm)
 plugins+=(zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
