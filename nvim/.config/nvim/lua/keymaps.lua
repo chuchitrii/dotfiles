@@ -24,6 +24,8 @@ vim.keymap.set('n', '<leader>Y', [["+Y]])
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -32,4 +34,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+local find_in_git_project = function(opts)
+  opts = opts or {}
+  opts.cwd = vim.fn.systemlist('git rev-parse --show-toplevel')[0]
+  require('telescope.builtin').find_files(opts)
+end
+
+vim.keymap.set('n', 'sp', find_in_git_project, { desc = '[S]earch in git [P]roject' })
 -- vim: ts=2 sts=2 sw=2 et
