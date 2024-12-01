@@ -12,7 +12,6 @@ export XDG_RUNTIME_DIR="/tmp/${USER}-runtime-dir"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 CASE_SENSITIVE="true"
-# HYPHEN_INSENSITIVE="true"
 
 ZSH_THEME=robbyrussell
 
