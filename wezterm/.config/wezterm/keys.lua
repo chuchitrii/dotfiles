@@ -4,6 +4,7 @@ local act = wezterm.action
 local function is_vim(pane)
 	return pane:get_user_vars().IS_NVIM == "true"
 end
+
 local direction_keys = {
 	Left = "h",
 	Down = "j",
@@ -100,6 +101,7 @@ local function keys(config)
 		split_nav("resize", "j"),
 		split_nav("resize", "k"),
 		split_nav("resize", "l"),
+		{ key = "v", mods = "LEADER", action = wezterm.action.ActivateCopyMode },
 	}
 	for i = 1, 9 do
 		table.insert(config.keys, {
