@@ -21,6 +21,8 @@ else
   export EDITOR='nvim'
 fi
 
+alias cdd='cd ./$(fd -H --type d | fzf)'
+
 plugins=(git nvm)
 plugins+=(zsh-vi-mode)
 
